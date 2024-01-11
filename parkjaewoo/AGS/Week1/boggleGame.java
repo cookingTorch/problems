@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+
+// 재귀함수 구현 -> 실패
 public class boggleGame {
     static int[] dx = {-1, -1, 0, 1, 1, 1, 0, -1};
     static int[] dy = {0, 1, 1, 1, 0, -1, -1, -1};
@@ -16,17 +18,14 @@ public class boggleGame {
         if (idx == word.length - 1) {
             isRight = true;
             return;
-        } else if (isRight) {
-            return;
         }
+
         for (int i = 0; i < 8; i++) {
             int x = dx[i] + _x;
             int y = dy[i] + _y;
 
-            if (isInner(x,y) && board[x][y] == word[idx + 1] && !isRight) {
+            if (isInner(x,y) && board[x][y] == word[idx + 1]) {
                 findWord(board, word, x, y, idx + 1);
-            } else if (isRight){
-                return;
             }
         }
     }
@@ -51,7 +50,7 @@ public class boggleGame {
                 char[] word = br.readLine().toCharArray();
                 for (int j = 0; j < 5; j++) {
                     for (int k = 0; k < 5; k++) {
-                        if (board[j][k] == word[0] && !isRight) {
+                        if (board[j][k] == word[0]) {
                             findWord(board, word, j, k, 0);
                         }
                     }
@@ -62,10 +61,19 @@ public class boggleGame {
                     System.out.println(String.valueOf(word) + " NO");
                 }
             }
+
         }
     }
 }
 
+//1
+//NNNNN
+//NEEEN
+//NEYEN
+//NEEEN
+//NNNNN
+//1
+//NEYN
 //1
 //URLPM
 //XPRET

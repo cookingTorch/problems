@@ -1,2 +1,2 @@
-Github Id : idealflower-k
-name : Lee sanghwa
+- Github Id : idealflower-k
+- name : Lee sanghwa

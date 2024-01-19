@@ -18,14 +18,14 @@ public class RockFestival {
             int n = Integer.parseInt(st.nextToken());
             int l = Integer.parseInt(st.nextToken());
 
-            int[] numbers = Arrays.stream(br.readLine().split(" "))
-                    .mapToInt(Integer::parseInt)
-                    .toArray();
-
             int[] sum = new int[n + 1];
             sum[0] = 0;
+            /*
+            한 줄을 받은 뒤, token으로 나누면 되므로 for loop 이전에 st를 선언한다.
+             */
+            st = new StringTokenizer(br.readLine());
             for (int j = 1; j <= n; j++) {
-                sum[j] = sum[j - 1] + numbers[j - 1];
+                sum[j] = sum[j - 1] + Integer.parseInt(st.nextToken());
             }
 
             double ans = Double.MAX_VALUE;

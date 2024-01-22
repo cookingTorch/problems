@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 public class CandyGame {
     static char[][] board;
     static int n;
-    static int answer = Integer.MIN_VALUE;
+    static int result = Integer.MIN_VALUE;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -49,7 +49,7 @@ public class CandyGame {
                 }
             }
         }
-        System.out.println(answer);
+        System.out.println(result);
     }
 
     // 행에 위치한 사탕을 바꾸는 경우, 바꾼 x 값에 대한 열을 검사하고 바꾼 캔디가 위치한 행을 검사하면 됩니다. (3가지 경우)
@@ -73,11 +73,11 @@ public class CandyGame {
             if (!compareColor(board[i][x], board[i + 1][x])) {
                 py++;
             } else {
-                answer = Math.max(answer, py);
+                result = Math.max(result, py);
                 py = 1;
             }
         }
-        answer = Math.max(answer, py);
+        result = Math.max(result, py);
 
     }
 
@@ -87,11 +87,11 @@ public class CandyGame {
             if (!compareColor(board[y][i], board[y][i + 1])) {
                 px++;
             } else {
-                answer = Math.max(answer, px);
+                result = Math.max(result, px);
                 px = 1;
             }
         }
-        answer = Math.max(answer, px);
+        result = Math.max(result, px);
     }
 
     public static boolean compareColor(char e1, char e2) {

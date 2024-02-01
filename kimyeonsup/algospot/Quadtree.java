@@ -50,7 +50,6 @@ public class Quadtree {
             }
             sb.append(c);
         }
-
         return sb.toString();
     }
 

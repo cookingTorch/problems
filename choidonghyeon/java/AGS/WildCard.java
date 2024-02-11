@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -45,7 +44,7 @@ public class Main {
                 }
 
                 while (currWordIdx < word.length()) {
-                    if (word.charAt(currWordIdx) == wildCard.charAt(i + 1)) {
+                    if (word.charAt(currWordIdx) == wildCard.charAt(i + 1) || wildCard.charAt(i+1) == '?') {
                         if (isMatch(wildCard,word,i+1,currWordIdx)) {
                             return true;
                         }

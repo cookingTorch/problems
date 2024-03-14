@@ -1,4 +1,4 @@
-package AGS.Week1;
+package first.Week1;
 
 import java.io.*;
 import java.util.StringTokenizer;

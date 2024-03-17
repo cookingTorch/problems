@@ -1,4 +1,4 @@
-package AGS.Week2.AGS;
+package first.Week2.AGS;
 
 import java.io.BufferedReader;
 import java.io.IOException;

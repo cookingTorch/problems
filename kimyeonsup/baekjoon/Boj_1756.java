@@ -34,16 +34,19 @@ public class Boj_1756 {
         System.out.println(result);
     }
 
-    public static void updateResult(int pizzaDia) {;
+    public static void updateResult(int pizzaDia) {
+        boolean flag = false;
         // pizzaDia 보다 작은 가장 빠른 값 (가장 위에 있는 값)
         for (int i = 1; i <= result; i++) {
             if (ovens[i] < pizzaDia) {
-                result = i - 1;
-                ovens[i - 1] = 0;
+                result = i;
+                ovens[i] = 0;
+                flag = true;
                 break;
             }
         }
-//        result -= 1;
+        if (!flag)
+            result = 0;
     }
 }
 

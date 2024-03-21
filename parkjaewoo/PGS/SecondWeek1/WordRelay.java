@@ -1,4 +1,4 @@
-package PGS;
+package PGS.SecondWeek1;
 
 import java.util.Arrays;
 import java.util.LinkedList;

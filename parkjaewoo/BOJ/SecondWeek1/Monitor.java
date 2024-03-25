@@ -1,4 +1,4 @@
-package BOJ;
+package BOJ.SecondWeek1;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

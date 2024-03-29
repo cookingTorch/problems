@@ -6,19 +6,12 @@ public class TravelRoute {
     static String[] solution;
     private Map<String, Deque<String>> treeMap;
     private List<String> paths = new ArrayList<>();
-    private Map<String, Integer> ticketCount;
 
     public static void main(String[] args) {
 //        String[][] param = {{"ICN", "BOO"}, {"ICN", "COO"}, {"COO", "DOO"}, {"DOO", "COO"}, {"BOO", "DOO"}, {"DOO", "BOO"}, {"BOO", "ICN"}, {"COO", "BOO"}};
 //        String[][] param = {{"ICN","A"},{"A","B"},{"A","C"},{"B","A"},{"C","A"}};
         String[][] param = {{"ICN", "A"}, {"A", "B"}, {"A", "C"}, {"C", "A"}, {"B", "D"}};
 //        String[][] param = {{"ICN", "SFO"}, {"ICN", "ATL"}, {"SFO", "ATL"}, {"ATL", "ICN"}, {"ATL", "SFO"}};
-//        String[] solution = new Solution().solution(new String[][]{
-//                {"ICN", "JFK"},
-//                {"HND", "IAD"},
-//                {"JFK", "HND"}
-//        });
-//        System.out.println(Arrays.toString(solution));
         solution = new TravelRoute().solution(param);
         System.out.println(Arrays.toString(solution));
     }
@@ -27,7 +20,6 @@ public class TravelRoute {
         String[] answer = {};
 
         treeMap = new TreeMap<>();
-        ticketCount = new HashMap<>();
 
         for (int i = 0; i < tickets.length; i++) {
             String from = tickets[i][0];
@@ -36,7 +28,6 @@ public class TravelRoute {
             Deque<String> toAirLines = treeMap.getOrDefault(from, new ArrayDeque<>());
             toAirLines.add(to);
             treeMap.put(from, toAirLines);
-            ticketCount.put(from, ticketCount.getOrDefault(from, 0) + 1);
         }
 
         dfs("ICN", tickets.length, "");
@@ -54,7 +45,6 @@ public class TravelRoute {
         }
 
         if (toAirlines == null) return;
-
 
         int size = toAirlines.size();
         if (size == 0) return;

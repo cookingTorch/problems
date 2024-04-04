@@ -3,7 +3,7 @@ public class 입국심사 {
 		long answer = 0;
 
 		long left = 1;
-		long right = (long)Math.pow(10, 14);
+		long right = (long)Math.pow(10, 18);
 		long mid;
 
 		while (left <= right) {

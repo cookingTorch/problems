@@ -11,11 +11,14 @@ public class 수열의_점수_2036 {
 		ArrayList<Long> yangs = new ArrayList<>();
 		ArrayList<Long> ums = new ArrayList<>();
 		boolean hasZero = false;
+		long answer = 0;
 
 		for (int i = 0; i < N; i++) {
 			long num = Long.parseLong(br.readLine());
-			if (num > 0) {
+			if (num > 1) {
 				yangs.add(num);
+			} else if (num == 1) {
+				answer++;
 			} else if (num < 0) {
 				ums.add(num);
 			} else {
@@ -23,27 +26,18 @@ public class 수열의_점수_2036 {
 			}
 		}
 
-		long answer = 0;
 		Collections.sort(yangs);
 		ums.sort(Collections.reverseOrder());
 
 		while (yangs.size() >= 2) {
-			long num1 = yangs.remove(yangs.size() - 1);
-			long num2 = yangs.remove(yangs.size() - 1);
-
-			if (num1 == 1 || num2 == 1) {
-				yangs.add(num1);
-				yangs.add(num2);
-				break;
-			}
-			answer += num1 * num2;
+			answer += yangs.remove(yangs.size() - 1) * yangs.remove(yangs.size() - 1);
 		}
 
 		while (ums.size() >= 2) {
 			answer += ums.remove(ums.size() - 1) *  ums.remove(ums.size() - 1);
 		}
 
-		while (!yangs.isEmpty()) {
+		if (!yangs.isEmpty()) {
 			answer += yangs.remove(0);
 		}
 

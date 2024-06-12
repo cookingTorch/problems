@@ -16,11 +16,7 @@ public class 과제 {
 
 		@Override
 		public int compareTo(Assignment target) {
-			if (this.score != target.score) {
-				return Integer.compare(target.score, this.score);
-			}
-
-			return Integer.compare(this.limit, target.limit);
+			return Integer.compare(target.score, this.score);
 		}
 	}
 
@@ -42,7 +38,7 @@ public class 과제 {
 			assignments[i] = new Assignment(d,w);
 		}
 
-		Arrays.sort(assignments); //1. 점수로 내림차순 2. 마감일 오름 차순
+		Arrays.sort(assignments);
 
 		for (Assignment assignment : assignments) {
 			int targetDay = assignment.limit;
